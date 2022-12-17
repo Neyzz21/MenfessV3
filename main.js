@@ -34,7 +34,7 @@ Memory_Store.bind(conn.ev)
 
 conn.ev.on('messages.upsert', async m => {
 var msg = m.messages[0]
-if (!m.messages) return;
+if (!mek.key.fromMe) return;
 if (msg.key && msg.key.remoteJid == "status@broadcast") return
 msg = serialize(conn, msg)
 msg.isBaileys = msg.key.id.startsWith('BAE5') || msg.key.id.startsWith('3EB0')
